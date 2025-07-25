@@ -1,24 +1,25 @@
-[gd_scene load_steps=33 format=3 uid="uid://clnfq2gqweyhp"]
+[gd_scene load_steps=34 format=3 uid="uid://clnfq2gqweyhp"]
 
-[ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_1dc0n"]
-[ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="2_tpd8u"]
-[ext_resource type="Script" path="res://scripts/movement/flip_to_cursor.gd" id="2_w4yy5"]
-[ext_resource type="Script" path="res://scripts/interaction/hit/hitbox.gd" id="3_f7uyv"]
+[ext_resource type="Script" uid="uid://db34m8j16jrak" path="res://scripts/movement/top_down_controller.gd" id="1_1dc0n"]
+[ext_resource type="Shader" uid="uid://c3c0ryrfy01pb" path="res://shaders/sprite.gdshader" id="2_tpd8u"]
+[ext_resource type="Script" uid="uid://b3t7obeyaemuy" path="res://scripts/movement/flip_to_cursor.gd" id="2_w4yy5"]
+[ext_resource type="Script" uid="uid://cjbn4x8qvgv34" path="res://scripts/interaction/hit/hitbox.gd" id="3_f7uyv"]
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="3_kwe0j"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/sprite_shake_effect.gd" id="5_lnxyu"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/slow_mo_effect.gd" id="6_4yby4"]
-[ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="6_ovvjq"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/color_flicker_effect.gd" id="7_6d2gh"]
-[ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="8_gyc27"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/particle_effect.gd" id="8_p3qh8"]
-[ext_resource type="Script" path="res://scripts/movement/pointer_rotator.gd" id="9_2pjw3"]
+[ext_resource type="Script" uid="uid://blm5xguu65uiw" path="res://scripts/interaction/effects/sprite_shake_effect.gd" id="5_lnxyu"]
+[ext_resource type="Script" uid="uid://cynq1r0udbvyg" path="res://scripts/interaction/effects/slow_mo_effect.gd" id="6_4yby4"]
+[ext_resource type="Script" uid="uid://h65u7is8mg01" path="res://scripts/interaction/effects/empty_effect.gd" id="6_kkiew"]
+[ext_resource type="Script" uid="uid://kxl8oglqw6w1" path="res://scripts/interaction/hit/hurtbox.gd" id="6_ovvjq"]
+[ext_resource type="Script" uid="uid://c8i6gs82ywg3f" path="res://scripts/interaction/effects/color_flicker_effect.gd" id="7_6d2gh"]
+[ext_resource type="Script" uid="uid://cv7kigcrlihsm" path="res://scripts/camera/camera_targeter.gd" id="8_gyc27"]
+[ext_resource type="Script" uid="uid://ddarolbi2jpce" path="res://scripts/interaction/effects/particle_effect.gd" id="8_p3qh8"]
+[ext_resource type="Script" uid="uid://dtegheyld6wty" path="res://scripts/movement/pointer_rotator.gd" id="9_2pjw3"]
 [ext_resource type="Texture2D" uid="uid://dqnvyneq7rl8f" path="res://sprites/common/gun.png" id="10_uk5b4"]
-[ext_resource type="Script" path="res://scripts/gameplay/gun.gd" id="12_2wxgc"]
+[ext_resource type="Script" uid="uid://b1tvicuvndyen" path="res://scripts/gameplay/gun.gd" id="12_2wxgc"]
 [ext_resource type="PackedScene" uid="uid://bkywrvgqsvvmu" path="res://scenes/common/bullet.tscn" id="13_eaf6k"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/camera_shake_effect.gd" id="14_m4bn5"]
-[ext_resource type="Script" path="res://scripts/camera/camera_shaker.gd" id="18_7yvpt"]
-[ext_resource type="Shader" path="res://shaders/shake2D.gdshader" id="19_5t7e4"]
-[ext_resource type="Script" path="res://scripts/movement/base_ai_movement.gd" id="19_60ni1"]
+[ext_resource type="Script" uid="uid://dkdgsw7w037i8" path="res://scripts/interaction/effects/camera_shake_effect.gd" id="14_m4bn5"]
+[ext_resource type="Script" uid="uid://r1el21sy334n" path="res://scripts/camera/camera_shaker.gd" id="18_7yvpt"]
+[ext_resource type="Shader" uid="uid://dx7oo28d2nwmv" path="res://shaders/shake2D.gdshader" id="19_5t7e4"]
+[ext_resource type="Script" uid="uid://csa1hb2014qks" path="res://scripts/movement/base_ai_movement.gd" id="19_60ni1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b10tn"]
 vertices = PackedVector2Array(-109, -1423, 1027, -1404, 1910, -629, 2329, 558, 907, 1529, -1430, 1047, -1195, -972)
@@ -105,7 +106,7 @@ texture = ExtResource("3_kwe0j")
 collision_mask = 2
 script = ExtResource("3_f7uyv")
 hp = 50.0
-damage_effects = Array[Resource("res://scripts/interaction/effects/empty_effect.gd")]([SubResource("Resource_ej8lc"), SubResource("Resource_iuduy"), SubResource("Resource_jtvvk"), SubResource("Resource_qgl23")])
+damage_effects = Array[ExtResource("6_kkiew")]([SubResource("Resource_ej8lc"), SubResource("Resource_iuduy"), SubResource("Resource_jtvvk"), SubResource("Resource_qgl23")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Node2D/HitBox"]
 shape = SubResource("CircleShape2D_xemoo")
@@ -124,7 +125,7 @@ position = Vector2(4.12726, -2.06363)
 scale = Vector2(0.171969, 0.171969)
 script = ExtResource("12_2wxgc")
 bullet_scene = ExtResource("13_eaf6k")
-shoot_effects = Array[Resource("res://scripts/interaction/effects/empty_effect.gd")]([SubResource("Resource_8ev03")])
+shoot_effects = Array[ExtResource("6_kkiew")]([SubResource("Resource_8ev03")])
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="CharacterBody2D"]
 emitting = false
@@ -156,7 +157,6 @@ radius = 175.82
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(834, 111)
-zoom = Vector2(1, 1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("8_gyc27")
@@ -176,7 +176,7 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("3_f7uyv")
 hp = 100.0
-damage_effects = Array[Resource("res://scripts/interaction/effects/empty_effect.gd")]([SubResource("Resource_xu72g")])
+damage_effects = Array[ExtResource("6_kkiew")]([SubResource("Resource_xu72g")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("RectangleShape2D_hkpwa")

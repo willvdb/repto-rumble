@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfttx6rqnafe"]
 
-[ext_resource type="Script" path="res://scripts/camera/screensize_viewport.gd" id="1_utk48"]
+[ext_resource type="Script" uid="uid://o8cs5u33vwjr" path="res://scripts/camera/screensize_viewport.gd" id="1_utk48"]
 
 [node name="minimap_viewport" type="SubViewport"]
 process_mode = 3

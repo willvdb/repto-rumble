@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://blm5o7am6wwbx"]
 
-[ext_resource type="Script" path="res://scripts/utilities/transition.gd" id="1_226go"]
+[ext_resource type="Script" uid="uid://cjd8n0trss6ln" path="res://scripts/utilities/transition.gd" id="1_226go"]
 
 [sub_resource type="Animation" id="Animation_o5pr1"]
 resource_name = "FadeIn"
@@ -49,9 +49,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3jvti"]
 _data = {
-"FadeIn": SubResource("Animation_o5pr1"),
-"FadeOut": SubResource("Animation_7vq6u"),
-"RESET": SubResource("Animation_l67c7")
+&"FadeIn": SubResource("Animation_o5pr1"),
+&"FadeOut": SubResource("Animation_7vq6u"),
+&"RESET": SubResource("Animation_l67c7")
 }
 
 [node name="Fade Transition" type="CanvasLayer" node_paths=PackedStringArray("animation")]

@@ -2,39 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="1_uxx57"]
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="2_cg4w5"]
-[ext_resource type="Script" path="res://scripts/movement/grid_controller.gd" id="2_tnplj"]
-[ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="4_8jsyy"]
-[ext_resource type="Script" path="res://scripts/gameplay/push_grid_object.gd" id="5_xassj"]
-[ext_resource type="Script" path="res://scripts/camera/camera_area.gd" id="6_vn8cy"]
+[ext_resource type="Script" uid="uid://crqfgdhj3hfcf" path="res://scripts/movement/grid_controller.gd" id="2_tnplj"]
+[ext_resource type="Script" uid="uid://cv7kigcrlihsm" path="res://scripts/camera/camera_targeter.gd" id="4_8jsyy"]
+[ext_resource type="Script" uid="uid://bosw4buhjcwri" path="res://scripts/gameplay/push_grid_object.gd" id="5_xassj"]
+[ext_resource type="Script" uid="uid://6iwqmev38sv3" path="res://scripts/camera/camera_area.gd" id="6_vn8cy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ng34"]
 texture = ExtResource("1_uxx57")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_qnkj3"]
 tile_size = Vector2i(8, 8)

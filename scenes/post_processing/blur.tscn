@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://oal6vwq28cvr"]
 
-[ext_resource type="Shader" path="res://shaders/post_processing/blur_postprocess.gdshader" id="1_sxeel"]
+[ext_resource type="Shader" uid="uid://cl55ujhgvocwh" path="res://shaders/post_processing/blur_postprocess.gdshader" id="1_sxeel"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b3oi8"]
 shader = ExtResource("1_sxeel")
-shader_parameter/strength = null
+shader_parameter/strength = 2
 
 [node name="Blur" type="CanvasLayer"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ds4pyjrrj8npy"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_j5voe"]
-[ext_resource type="Script" path="res://scripts/ui/dialog_box.gd" id="2_4j5tl"]
+[ext_resource type="Script" uid="uid://1yrmxr8hn61x" path="res://scripts/ui/dialog_box.gd" id="2_4j5tl"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_63611"]
 animation = &"off"
@@ -80,9 +80,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ah15q"]
 _data = {
-"RESET": SubResource("Animation_s52pd"),
-"off": SubResource("Animation_gf1ny"),
-"on": SubResource("Animation_t65mo")
+&"RESET": SubResource("Animation_s52pd"),
+&"off": SubResource("Animation_gf1ny"),
+&"on": SubResource("Animation_t65mo")
 }
 
 [node name="dialog_box" type="Control" node_paths=PackedStringArray("text")]

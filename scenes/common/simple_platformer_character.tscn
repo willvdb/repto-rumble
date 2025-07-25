@@ -1,137 +1,126 @@
-[gd_scene load_steps=27 format=3 uid="uid://dnlir14iywfl8"]
+[gd_scene load_steps=24 format=3 uid="uid://dnlir14iywfl8"]
 
-[ext_resource type="Script" path="res://scripts/movement/platformer_controller.gd" id="1_mox32"]
-[ext_resource type="Script" path="res://scripts/movement/base_jump.gd" id="2_4mo5d"]
-[ext_resource type="Texture2D" uid="uid://bvtsxwnb2ou8v" path="res://sprites/shapes/circle.png" id="3_hxg5w"]
-[ext_resource type="Script" path="res://scripts/interaction/interactor.gd" id="4_18t1y"]
-[ext_resource type="Script" path="res://scripts/interaction/hit/hitbox.gd" id="5_03p7k"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/reload_effect.gd" id="6_b56sk"]
+[ext_resource type="Script" uid="uid://bcjuuxx4ravow" path="res://scripts/movement/platformer_controller.gd" id="1_mox32"]
+[ext_resource type="Script" uid="uid://df74hb4oyhmoe" path="res://scripts/movement/base_jump.gd" id="2_4mo5d"]
+[ext_resource type="Texture2D" uid="uid://dk8asesly58mx" path="res://sprites/characters/schneider/run.png" id="3_o0frn"]
+[ext_resource type="Script" uid="uid://cyd7reywd51md" path="res://scripts/interaction/interactor.gd" id="4_18t1y"]
+[ext_resource type="Script" uid="uid://cjbn4x8qvgv34" path="res://scripts/interaction/hit/hitbox.gd" id="5_03p7k"]
+[ext_resource type="Script" uid="uid://5f8bhdqisp8f" path="res://scripts/interaction/effects/reload_effect.gd" id="6_b56sk"]
+[ext_resource type="Script" uid="uid://h65u7is8mg01" path="res://scripts/interaction/effects/empty_effect.gd" id="6_o0frn"]
 
 [sub_resource type="Resource" id="Resource_j6tkt"]
 script = ExtResource("2_4mo5d")
 jump_speed = 250.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7tr0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0frn"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw07g"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mskop"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ipui"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11qtb"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6qrs"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_714uc"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kvfq"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pvx8"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ts5l"]
+atlas = ExtResource("3_o0frn")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_character"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0frn")
+}],
+"loop": true,
+"name": &"air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw07g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mskop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ipui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11qtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6qrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_714uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kvfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pvx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ts5l")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"wall slide",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"wall_jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0frn"]
+size = Vector2(53, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kapla"]
-
-[sub_resource type="Animation" id="Animation_apdon"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Circle:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_da4bg"]
-resource_name = "air"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Circle:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1sudq"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Circle:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_l2lhe"]
-resource_name = "moving"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Circle:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 1, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rfy8"]
-_data = {
-"RESET": SubResource("Animation_apdon"),
-"air": SubResource("Animation_da4bg"),
-"idle": SubResource("Animation_1sudq"),
-"moving": SubResource("Animation_l2lhe")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_13dtj"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0bde6"]
-animation = &"moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dbuxb"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wh3d6"]
-advance_mode = 2
-advance_expression = "velocity.x != 0"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_20fog"]
-advance_mode = 2
-advance_expression = "velocity.x == 0"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8emne"]
-states/idle/node = SubResource("AnimationNodeAnimation_13dtj")
-states/idle/position = Vector2(374, 100)
-states/moving/node = SubResource("AnimationNodeAnimation_0bde6")
-states/moving/position = Vector2(568, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dbuxb"), "idle", "moving", SubResource("AnimationNodeStateMachineTransition_wh3d6"), "moving", "idle", SubResource("AnimationNodeStateMachineTransition_20fog")]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t8qun"]
-animation = &"air"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6fcuo"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7caxq"]
-advance_mode = 2
-advance_expression = "not _is_on_floor"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ybbcq"]
-advance_mode = 2
-advance_expression = "_is_on_floor"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_s0ab6"]
-states/Moving/node = SubResource("AnimationNodeStateMachine_8emne")
-states/Moving/position = Vector2(437, 100)
-states/Start/position = Vector2(180, 100)
-states/air/node = SubResource("AnimationNodeAnimation_t8qun")
-states/air/position = Vector2(437, -40)
-transitions = ["Start", "Moving", SubResource("AnimationNodeStateMachineTransition_6fcuo"), "Moving", "air", SubResource("AnimationNodeStateMachineTransition_7caxq"), "air", "Moving", SubResource("AnimationNodeStateMachineTransition_ybbcq")]
-graph_offset = Vector2(-75, -194)
+size = Vector2(52, 24)
 
 [sub_resource type="Resource" id="Resource_5cdti"]
 script = ExtResource("6_b56sk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw07g"]
+size = Vector2(52, 24)
 
 [node name="platformer_character" type="CharacterBody2D" node_paths=PackedStringArray("hit_box")]
 visibility_layer = 3
@@ -141,35 +130,34 @@ script = ExtResource("1_mox32")
 jump = SubResource("Resource_j6tkt")
 hit_box = NodePath("HitBox")
 
-[node name="Circle" type="Sprite2D" parent="."]
+[node name="Circle" type="AnimatedSprite2D" parent="."]
 visibility_layer = 3
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_hxg5w")
+position = Vector2(-2.38419e-07, -2)
+scale = Vector2(1.1875, 1.13021)
+sprite_frames = SubResource("SpriteFrames_character")
+animation = &"moving"
+frame_progress = 0.85258
+speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_p7tr0")
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_o0frn")
 
 [node name="use_interactor" type="Area2D" parent="." groups=["player"]]
+position = Vector2(52, 0)
 script = ExtResource("4_18t1y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="use_interactor"]
+position = Vector2(-52, 0)
 shape = SubResource("RectangleShape2D_kapla")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6rfy8")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_s0ab6")
-advance_expression_base_node = NodePath("..")
-anim_player = NodePath("../AnimationPlayer")
-
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(44, 24)
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("5_03p7k")
-death_effects = Array[Resource("res://scripts/interaction/effects/empty_effect.gd")]([SubResource("Resource_5cdti")])
+death_effects = Array[ExtResource("6_o0frn")]([SubResource("Resource_5cdti")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CapsuleShape2D_p7tr0")
+position = Vector2(-44, -24)
+shape = SubResource("RectangleShape2D_jw07g")
