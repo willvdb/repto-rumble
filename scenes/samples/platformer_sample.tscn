@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://tqr8mcs2r0kr"]
+[gd_scene load_steps=24 format=3 uid="uid://tqr8mcs2r0kr"]
 
 [ext_resource type="PackedScene" uid="uid://ds4pyjrrj8npy" path="res://scenes/common/ui/dialog_box.tscn" id="1_lp2vr"]
 [ext_resource type="AudioStream" uid="uid://cwebecx1uu4lc" path="res://audio/jungle_1.mp3" id="2_jungle"]
+[ext_resource type="PackedScene" path="res://scenes/common/ui/hud.tscn" id="3_hud"]
 [ext_resource type="Script" uid="uid://dj01d1w3humqu" path="res://scripts/ui/viewport_texture_rect.gd" id="4_eqcxs"]
 [ext_resource type="Script" uid="uid://cv7kigcrlihsm" path="res://scripts/camera/camera_targeter.gd" id="5_8twu0"]
 [ext_resource type="TileSet" uid="uid://beexykwva7t0i" path="res://game_resources/sample_tileset.tres" id="5_iijwm"]
@@ -45,12 +46,13 @@ volume_db = -10.0
 autoplay = true
 
 [node name="ui" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="pause_menu" parent="ui" instance=ExtResource("6_qry4t")]
 
 [node name="dialog_box" parent="ui" instance=ExtResource("1_lp2vr")]
 is_on = false
+
+[node name="HUD" parent="ui" instance=ExtResource("3_hud")]
 
 [node name="minimap" type="Control" parent="ui"]
 layout_mode = 3
@@ -70,10 +72,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 106.0
+offset_left = 256.0
 offset_top = -36.0
 offset_right = 106.0
-offset_bottom = -36.0
+offset_bottom = -169.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("ViewportTexture_drpd8")
@@ -85,7 +87,7 @@ viewport = NodePath("../../../minimap_viewport")
 [node name="camera_player" type="Camera2D" parent="."]
 visibility_layer = 2
 position = Vector2(12, 8)
-zoom = Vector2(2, 2)
+zoom = Vector2(5, 5)
 editor_draw_limits = true
 
 [node name="CameraTargeter" type="Node" parent="camera_player" node_paths=PackedStringArray("camera")]

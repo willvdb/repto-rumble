@@ -39,6 +39,9 @@ signal stamina_changed(current_stamina: float, max_stamina: float)
 var stamina: float = max_stamina
 
 func _enter_tree():
+	# Add to player group so UI can find this node
+	add_to_group("player")
+	
 	if jump:
 		jump.register(self)
 	

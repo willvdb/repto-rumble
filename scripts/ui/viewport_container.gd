@@ -1,5 +1,3 @@
-@tool
-
 extends AspectRatioContainer
 
 @onready var audio_player: AudioStreamPlayer
