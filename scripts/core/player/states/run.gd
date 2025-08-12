@@ -33,7 +33,7 @@ func physics(owner: Node, delta: float) -> void:
 	if abs(direction) > 0.1:
 		# Check for sprinting
 		var speed = owner.get("MOVE_SPEED") if owner.get("MOVE_SPEED") else 100.0
-		var is_sprinting = Input.is_action_pressed("ui_shift") and owner.get("stamina") > 0.0
+		var is_sprinting = owner.input_provider.is_action_pressed("sprint") and owner.get("stamina") > 0.0
 		
 		if is_sprinting:
 			var sprint_speed = owner.get("SPRINT_SPEED") if owner.get("SPRINT_SPEED") else 250.0
@@ -62,7 +62,7 @@ func physics(owner: Node, delta: float) -> void:
 		return
 	
 	# Check for jump
-	if Input.is_action_just_pressed("jump") and owner.get("is_on_floor_cached"):
+	if owner.input_provider.is_action_just_pressed("jump") and owner.get("is_on_floor_cached"):
 		var jump_cost = owner.get("JUMP_STAMINA_COST") if owner.get("JUMP_STAMINA_COST") else 20.0
 		if owner.has_method("consume_stamina") and owner.consume_stamina(jump_cost):
 			var jump_velocity = owner.get("JUMP_VELOCITY") if owner.get("JUMP_VELOCITY") else -400.0

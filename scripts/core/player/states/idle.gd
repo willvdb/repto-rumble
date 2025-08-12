@@ -9,8 +9,11 @@ class_name IdleState
 func enter(owner: Node, _prev_state) -> void:
 	if owner.has_method("animated_sprite") or owner.get("animated_sprite"):
 		var anim_sprite = owner.get("animated_sprite")
-		if anim_sprite:
-			anim_sprite.play("idle")
+		if anim_sprite and anim_sprite.sprite_frames:
+			if anim_sprite.sprite_frames.has_animation("idle"):
+				anim_sprite.play("idle")
+			else:
+				anim_sprite.play("default")
 
 func physics(owner: Node, delta: float) -> void:
 	# Apply gravity
@@ -28,7 +31,7 @@ func physics(owner: Node, delta: float) -> void:
 		return
 	
 	# Check for jump input
-	if Input.is_action_just_pressed("jump") and owner.get("is_on_floor_cached"):
+	if owner.input_provider.is_action_just_pressed("jump") and owner.get("is_on_floor_cached"):
 		var jump_cost = owner.get("JUMP_STAMINA_COST") if owner.get("JUMP_STAMINA_COST") else 20.0
 		if owner.has_method("consume_stamina") and owner.consume_stamina(jump_cost):
 			var jump_velocity = owner.get("JUMP_VELOCITY") if owner.get("JUMP_VELOCITY") else -400.0

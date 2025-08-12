@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8x7m1vqfsawe"]
+[gd_scene load_steps=4 format=3 uid="uid://player_scene"]
 
 [ext_resource type="Script" path="res://scripts/core/player/player.gd" id="1_player"]
+[ext_resource type="SpriteFrames" path="res://sprites/characters/placeholder_basic.tres" id="2_placeholder_frames"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(20, 40)
@@ -9,6 +10,9 @@ size = Vector2(20, 40)
 script = ExtResource("1_player")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_placeholder_frames")
+animation = &"idle"
+texture_filter = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1")

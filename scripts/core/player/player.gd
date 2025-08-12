@@ -5,8 +5,15 @@
 
 class_name Player extends CharacterBody2D
 
-# Load BaseState first
-const BaseState = preload("res://scripts/core/player/states/base_state.gd")
+# Load dependencies
+const InputProvider = preload("res://scripts/core/input_provider.gd")
+
+# Multiplayer support
+@export var player_id: int = 0
+@export var input_map_suffix: String = ""
+
+# Input provider for this player
+var input_provider: InputProvider
 
 # Physics constants
 const GRAVITY = 980.0
@@ -48,6 +55,9 @@ signal hit_landed(data: Dictionary)
 
 func _ready() -> void:
 	add_to_group("player")
+	
+	# Initialize input provider
+	input_provider = InputProvider.new(player_id)
 	
 	# Initialize states
 	_initialize_states()
@@ -131,7 +141,7 @@ func apply_gravity(delta: float) -> void:
 func get_input_direction() -> float:
 	if not can_move:
 		return 0.0
-	return Input.get_axis("move_left", "move_right")
+	return input_provider.get_axis("left", "right")
 
 func update_facing_direction(direction: float) -> void:
 	if direction != 0:

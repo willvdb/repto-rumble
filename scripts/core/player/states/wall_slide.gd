@@ -22,7 +22,7 @@ func physics(owner: Node, delta: float) -> void:
 		owner.velocity.y = min(owner.velocity.y + owner.get("GRAVITY") * delta * 0.3, slide_speed)
 	
 	# Check for wall jump
-	if Input.is_action_just_pressed("jump"):
+	if owner.input_provider.is_action_just_pressed("jump"):
 		var jump_cost = owner.get("JUMP_STAMINA_COST") if owner.get("JUMP_STAMINA_COST") else 20.0
 		if owner.has_method("consume_stamina") and owner.consume_stamina(jump_cost):
 			if owner.has_method("switch_state"):
