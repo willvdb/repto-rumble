@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8x7m1vqfsawe"]
+
+[ext_resource type="Script" path="res://scripts/core/player/player.gd" id="1_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(20, 40)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Sockets" type="Node2D" parent="."]
+
+[node name="HitSocketA" type="Marker2D" parent="Sockets"]
+position = Vector2(15, 0)
+
+[node name="HitSocketB" type="Marker2D" parent="Sockets"]
+position = Vector2(-15, 0)
+
+[node name="MoveRunner" type="Node" parent="."]

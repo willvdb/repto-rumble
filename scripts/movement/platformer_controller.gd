@@ -126,8 +126,12 @@ func _apply_wall_jump():
 			var wall_dir = get_wall_direction()
 			velocity.x = wall_jump_force.x * -wall_dir
 			velocity.y = wall_jump_force.y
-			if _animated_sprite.animation != "wall_jump":
-				_animated_sprite.play("wall_jump")
+			# Use wall_jump animation if available, fallback to air
+			if _animated_sprite.sprite_frames.has_animation("wall_jump"):
+				if _animated_sprite.animation != "wall_jump":
+					_animated_sprite.play("wall_jump")
+			elif _animated_sprite.animation != "air":
+				_animated_sprite.play("air")
 	elif Input.is_action_just_released("jump"):
 		on_jump_end.emit()
 
@@ -208,15 +212,23 @@ func _apply_movement(_delta):
 
 func _update_animations():
 	if _is_wall_sliding:
-		if _animated_sprite.animation != "wall_slide":
-			_animated_sprite.play("wall_slide")
+		# Use idle as fallback if wall_slide doesn't exist yet
+		if _animated_sprite.sprite_frames.has_animation("wall_slide"):
+			if _animated_sprite.animation != "wall_slide":
+				_animated_sprite.play("wall_slide")
+		else:
+			if _animated_sprite.animation != "idle":
+				_animated_sprite.play("idle")
 	elif not _is_on_floor:
 		# In air (but not wall sliding or wall jumping)
 		if _animated_sprite.animation != "air":
 			_animated_sprite.play("air")
 	elif abs(velocity.x) > 0:
-		# Moving on ground
-		if _animated_sprite.animation != "moving":
+		# Moving on ground - try 'run' first, fallback to 'moving'
+		if _animated_sprite.sprite_frames.has_animation("run"):
+			if _animated_sprite.animation != "run":
+				_animated_sprite.play("run")
+		elif _animated_sprite.animation != "moving":
 			_animated_sprite.play("moving")
 	else:
 		# Idle on ground
