@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=33 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" uid="uid://cbw36nx042alp" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://b5agio1rk0oit" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="Texture2D" uid="uid://djgjbuwsbg83r" path="res://images/background.png" id="6_qhip2"]
 [ext_resource type="Texture2D" uid="uid://dy5sdoixlljwo" path="res://images/bg.png" id="7_j1ra7"]
-[ext_resource type="PackedScene" uid="uid://d3t8pv34c07c2" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -258,10 +257,20 @@ vertical_alignment = 1
 layout_mode = 2
 text = "Start"
 
-[node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("9_ijoqn")]
+[node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
 size_flags_vertical = 1
 text = "Continue"
+script = null
 
 [node name="settings_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2

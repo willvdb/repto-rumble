@@ -32,6 +32,10 @@ CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ai_helper/plugin.cfg")
+
 [input]
 
 ui_cancel={

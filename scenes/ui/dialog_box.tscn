@@ -125,11 +125,10 @@ visible_ratio = 0.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_8gm7i")
-anim_player = NodePath("../AnimationPlayer")
 advance_expression_base_node = NodePath("..")
-active = true
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ah15q")
+&"": SubResource("AnimationLibrary_ah15q")
 }
